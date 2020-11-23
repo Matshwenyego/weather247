@@ -1,5 +1,3 @@
-import withSpinner from './functions';
+import {WithSpinner} from './components';
 
-export {
-    withSpinner,
-};
+export {WithSpinner};
