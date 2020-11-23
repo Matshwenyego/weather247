@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {View,StatusBar,SafeAreaView} from 'react-native';
 import {WithSpinner} from 'common';
 import NetInfo from "@react-native-community/netinfo";
 import {
@@ -14,7 +14,7 @@ import {
 } from './Functions';
 import {styles} from './styles';
 
-const ViewWithSpinner = WithSpinner(View);
+const ViewWithSpinner = WithSpinner(SafeAreaView);
 
 const HomeViewContainer = () => {
   const [tempRange, setTempRange] = useState(null);
@@ -24,6 +24,11 @@ const HomeViewContainer = () => {
   const [timeStamp, setTimestamp] = useState(null);
   const [coords, setCoords] = useState(null);
   const [isLoader, setLoader] = useState(false);
+
+  //       <StatusBar barStyle="light-content" />
+//       <SafeAreaView style={styles.container}>
+//         <HomeViewContainer />
+//       </SafeAreaView>
 
   useEffect(() => {
     getLocation(setLoader,setCoords);
@@ -62,6 +67,7 @@ const HomeViewContainer = () => {
 
   return (
     <ViewWithSpinner Loading={isLoader} style={styles.container}>
+      <StatusBar barStyle="light-content" />
       {weather&&(
         <ForecastHeader 
           tempRange={tempRange} 

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const api = 'REPLACE-WITH-KEY';
+const api = 'fdb7f0591869b4b9186051caf29d7c6d';
 
 const getForecastData = async (
     setLoader,
